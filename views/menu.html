@@ -1,0 +1,39 @@
+
+<html<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../static/global.css">
+<style>
+  #items>.special-button{width:100%;margin:unset;border-radius:0;padding:9px 0px;}
+</style>
+
+</head>
+<body>
+
+<div style="text-align:right;">
+  <noscript>
+    <a href="{%ref%}" class="special-button">&rarr;</a>
+  </noscript>
+  <div id="jsBack" style="display:none;">
+    <a href="#" onclick="window.history.back();" class="special-button">&rarr;</a>
+  </div>
+  <script>
+    document.getElementById('jsBack').style.display = 'block';
+  </script>
+  <br>
+</div>
+<div id="items">
+  <p style="text-align:center;"></p>
+  <a class="special-button" href="global_layout.html">Start</a><br>
+
+    <a class="special-button" href="/bots/@me">My bots</a><br>
+    <a class="special-button" href="/bots/@unapproved">Unapproved bots</a><br>
+    <a class="special-button" href="/bots/register">Register bot</a><br>
+    <a class="special-button" href="/discorddeauth">Logout</a><br>
+    <a class="special-button" href="/discordauth">Login</a><br>
+  <br>
+  <a class="special-button" href="{%COMMUNITY%}" style="background-color:#7289da;">Join our Discord</a>
+</div>
+
+</body>
+</html>

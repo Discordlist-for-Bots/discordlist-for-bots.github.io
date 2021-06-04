@@ -1,0 +1,17 @@
+<title>Registering a bot</title>
+<link rel="stylesheet" href="../static/global.css">
+
+<div class="container">
+  <form action="register" method="POST">
+      <p class="title text-center">Registering a bot</p>
+      <p>Client ID *</p><input tyep="number" class="special-input maxwidth" name="app_id" maxlength="19" minlength="17" pattern="^[0-9]+$" onclick="dontLoose()" required>
+      <p>Short description *</p><input class="special-input maxwidth" name="short_description" maxlength="80" onclick="dontLoose()" required>
+      <p>Long description *</p><textarea class="special-input maxwidth" name="long_description" style="height:200px;" onclick="dontLoose()" minlength="200" required></textarea>
+      <p>Prefix *</p><input class="special-input maxwidth" name="prefix" maxlength="6" onclick="dontLoose()" required>
+      <p>Permanent support server invite code</p><input class="special-input maxwidth" name="support_server" maxlength="15" minlength="5" onclick="dontLoose()">
+      <p>Owner</p><input class="special-input maxwidth" autocomplete="off" onclick="dontLoose()" disabled>
+      <br><br><br>
+      <input type="submit" class="special-button" style="margin:0px;" onclick="loose()" value="Submit">
+  </form>
+  <script src="/dontloose.js"></script>
+</div>
