@@ -1,0 +1,29 @@
+<title>{%SHORT_NAME%}</title>
+
+<div class="container text-center">
+  <img style="width:15%;height:15%;" src="/logo.png">
+  <link rel="stylesheet" href="../static/global.css">
+  <p class="title">{%LONG_NAME%}</p>
+  <p>{%DESCRIPTION%}</p>
+      <a class="special-button" href="@all">All bots</a>
+      <a class="special-button" href="@me">My bots</a>
+    <a class="special-button" href="register">Register bot</a>
+  <hr>
+  <br>
+  <std::map<uint64_t, Bot>>("bots")) {%>
+    <a class="special-button tile" href="{%bot_id%}/detail" style="background-color:red"#222222":"red")%};color:white;">
+      <img src="{%bot.avatar_url%}" style="width:128px;height:128px;">
+      <center>
+        <div class="votesbox">
+          <p class="votestext">Votes: <b>{%bot.votes%}</b></p>
+        </div>
+      </center>
+      <p style="line-height:0px;font-size:20px;">{%bot.name%}</p>
+      <p>{%bot.short_description%}</p>
+
+        <i>Not yet approved</i>
+
+    </a>
+    <hr class="tilespacer">
+
+</div>
