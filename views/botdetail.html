@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="../static/botdetail.css">
+<link rel="stylesheet" href="../static/global.css">
+<title>{%bot.name%} - {%SHORT_NAME%}</title>
+
+
+<div class="container">
+  <h1 class="text text-center"></h1>
+  <div class="bot-flex">
+
+    <img class="bot-image" src="{%bot.avatar_url%}"></img>
+    <div class="bot-text text text-center title">
+      {%HttpViewData::htmlTranslate(bot.name)%}
+    </div>
+    <%c++ if (sessionData and (bot.owner_id == sessionData->discord_id or sessionData->moderator)) {%>
+      <div class="actionsWrapper actions">
+        <a class="special-button" href="edit/edit" style="background-color:yellow;color:black;">Edit</a>
+        <a class="special-button" href="edit/delete" style="background-color:red;color:black;">Delete</a>
+      </div>
+      <%c++ if (sessionData->moderator and not bot.approved) {%>
+        <div class="actionsWrapper actions">
+          <a class="special-button" href="edit/approve" style="background-color:green;color:white;">Approve</a>
+          <a class="special-button" href="edit/delete" style="background-color:black;color:white;">Decline</a>
+        </div>
+      <%c++ }%>
+    <%c++ }%>
+    <div class="actionsWrapper actions">
+      <a class="special-button" href="https://discord.com/oauth2/authorize?client_id={%bot.app_id%}&permissions=8&scope=applications.commands%20bot">Invite</a>
+      <a class="special-button" {%(canVote?"href='vote'":"style='color:grey;'")%}>Vote <b>{%bot.votes%}</b></a>
+    </div>
+  </div>
+  <hr>
+  <br>
+  <div class="text long-description">
+    {%views::htmlBr(HttpViewData::htmlTranslate(bot.long_description))%}
+  </div>
+
+  <hr>
+  <div class="text overview">
+    <h2>Overview</h2>
+    <table>
+      <%c++ if (not bot.prefix.empty()) {%>
+        <tr>
+          <td class="overview-key">Prefix</td>
+          <td class="overview-value">{%HttpViewData::htmlTranslate(bot.prefix)%}</td>
+        </tr>
+      <%c++ }%>
+      <tr>
+        <td class="overview-key">Owner</td>
+        <td class="overview-value">{%HttpViewData::htmlTranslate(bot.owner)%}</td>
+      </tr>
+    </table>
+    <br>
+    <%c++ if (not bot.support_server.empty()) {%>
+      <a class="special-button" style="margin:0px;" href="https://discord.gg/{%HttpViewData::htmlTranslate(bot.support_server)%}">Support Server</a>
+    <%c++ }%>
+  </div>
+</div>
+

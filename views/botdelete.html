@@ -1,0 +1,12 @@
+<%c++ auto botname = @@.get<std::string>("botname");%>
+<%layout global_layout%>
+
+<title>Deleting a bot - DFB</title>
+
+<div class="container text-center">
+  <p class="title">Are you sure you want to delete {%botname%}?</p>
+  <form action="delete" method="post">
+    <input class="special-button" style="background-color:red;" type="submit" value="Yes">
+    <a class="special-button" href="../detail">No</a>
+  </form>
+</div>

@@ -1,0 +1,11 @@
+<%inc#include "controllers/views.h"
+#include "config.h" %>
+<%c++ auto sessionData = @@.get<SessionDataPtr>("sessionData");%>
+<%layout global_layout%>
+
+<meta http-equiv = "refresh" content = "2; url = /" />
+<title>Authentication success - {%SHORT_NAME%}</title>
+
+<div class="container">
+  <p class="title text-center">Authenticated as: {%sessionData->discord_fullname()%}</p>
+</div>

@@ -1,0 +1,20 @@
+<%inc#include "controllers/views.h"
+#include "config.h" %>
+<%c++ auto bot = @@.get<Bot>("bot");%>
+<%layout global_layout%>
+
+<title>Editing a bot - {%SHORT_NAME%}</title>
+
+<div class="container">
+  <form action="edit" method="POST">
+      <p class="title text-center">Editing {%HttpViewData::htmlTranslate(bot.name)%}</p>
+      <p>Short description</p><input class="special-input maxwidth" name="short_description" maxlength="80" onclick="dontLoose()" value="{%bot.short_description%}" required>
+      <p>Long description</p><textarea class="special-input maxwidth" name="long_description" style="height:200px;" onclick="dontLoose()" required>{%HttpViewData::htmlTranslate(bot.long_description)%}</textarea>
+      <p>Prefix</p><input class="special-input maxwidth" name="prefix" maxlength="6" onclick="dontLoose()" value="{%bot.prefix%}" required>
+      <p>Permanent support server invite code</p><input class="special-input maxwidth" name="support_server" maxlength="15" minlength="5" onclick="dontLoose()" value="{%bot.support_server%}">
+      <p>Refresh data</p><input type="checkbox" name="refresh">
+      <br><br><br>
+      <input type="submit" class="special-button" style="margin:0px;" onclick="loose()" value="Submit">
+  </form>
+  <script src=/dontloose.js”></script>
+</div>
